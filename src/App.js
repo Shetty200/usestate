@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+
+import  React,{ useState,useEffect } from 'react';
 
 function App() {
+
+  const [counter,Setcounter] = useState(0);
+  const handleClick = ()=> Setcounter (counter +1);
+  const [decrease,Setdecrease] = useState(0);
+  const handleClick1 = ()=> Setdecrease (decrease -1);
+
+  useEffect (()=> {
+    console.log('inside the useffect');
+  } );
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  
+    <>
+
+   <button style={{textAlign:"center"}} onClick ={handleClick}>Click me</button>
+   <button style={{textAlign:"center"}} onClick ={handleClick1}>Click me</button>
+   <div style={{marginTop:'5px'}}>{counter}</div>
+   <div style={{marginTop:'6px'}}>{decrease}</div>
+</>
   );
 }
 
